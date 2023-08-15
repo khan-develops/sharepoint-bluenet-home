@@ -55,7 +55,7 @@ const Anniversary = ({
 								setSiteUsers(
 									siteUsers.map((siteUser) => ({
 										...siteUser,
-										HireDate: siteUser.Id === currentUser.Id ? hireDate : ''
+										HireDate: siteUser.Id === currentUser.Id ? hireDate : siteUser.HireDate
 									}))
 								);
 							})
@@ -191,7 +191,7 @@ const Anniversary = ({
 					<div className={styles.container}>
 						{siteUsers &&
 							siteUsers.length > 0 &&
-							siteUsers.map((user, index) => (
+							filterAnniversaries(siteUsers).map((user, index) => (
 								<div className={styles.content} key={index}>
 									<div className={styles.day}>{user.HireDate && user.HireDate.split('/')[1]}</div>
 									<div className={styles.name}>{user.Title}</div>

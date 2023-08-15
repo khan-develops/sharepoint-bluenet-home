@@ -6,6 +6,7 @@ import '@pnp/sp/folders';
 import '@pnp/sp/profiles';
 import { SPFI } from '@pnp/sp';
 import * as React from 'react';
+import { MouseEvent } from 'react';
 import * as moment from 'moment';
 import '@pnp/sp/site-users/web';
 import { MONTHS } from '../../common/Constants';
@@ -34,7 +35,8 @@ export const Birthday = ({
 	const [message, setMessage] = useState<string>('Email sent successfully');
 	const [severity, setSeverity] = useState<'error' | 'info' | 'success' | 'warning'>('success');
 
-	const updateBirthDate = (): void => {
+	const updateBirthDate = (event: MouseEvent<HTMLElement>): void => {
+		event.preventDefault();
 		sp.profiles
 			.setSingleValueProfileProperty(currentUser.Name, 'SPS-Birthday', birthDate)
 			.then(() => {
@@ -47,10 +49,14 @@ export const Birthday = ({
 								const birthDate = userProperty.UserProfileProperties.find(
 									(property: { Key: string; Value: string }) => property.Key === 'SPS-Birthday'
 								);
+								setCurrentUser({
+									...currentUser,
+									BirthDate: birthDate.Value
+								});
 								setSiteUsers(
 									siteUsers.map((siteUser) => ({
 										...siteUser,
-										BirthDate: siteUser.Id === currentUser.Id ? birthDate : siteUser.HireDate
+										BirthDate: siteUser.Id === currentUser.Id ? birthDate : siteUser.BirthDate
 									}))
 								);
 							})
@@ -196,7 +202,7 @@ export const Birthday = ({
 					siteUsers &&
 					siteUsers.length > 0 && (
 						<div>
-							{siteUsers
+							{filterBirthDays(siteUsers)
 								.sort(
 									(userA, userB) =>
 										new Date(userA.BirthDate).getTime() - new Date(userB.BirthDate).getTime()
