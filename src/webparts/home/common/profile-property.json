@@ -1,0 +1,557 @@
+{
+	"odata.metadata": "https://usdtl.sharepoint.com/_api/$metadata#SP.ApiData.PersonPropertiess/@Element",
+	"odata.type": "SP.UserProfiles.PersonProperties",
+	"odata.id": "https://usdtl.sharepoint.com/_api/sp.userprofiles.peoplemanager/getpropertiesfor(@v)",
+	"odata.editLink": "sp.userprofiles.peoplemanager/getpropertiesfor(@v)",
+	"AccountName": "i:0#.f|membership|batsaikhan.ulambayar@usdtl.com",
+	"DirectReports": [],
+	"DisplayName": "Batsaikhan Ulambayar",
+	"Email": "batsaikhan.ulambayar@usdtl.com",
+	"ExtendedManagers": [],
+	"ExtendedReports": ["i:0#.f|membership|batsaikhan.ulambayar@usdtl.com"],
+	"IsFollowed": false,
+	"LatestPost": null,
+	"Peers": [],
+	"PersonalSiteHostUrl": "https://usdtl-my.sharepoint.com:443/",
+	"PersonalUrl": "https://usdtl-my.sharepoint.com/personal/batsaikhan_ulambayar_usdtl_com/",
+	"PictureUrl": "https://usdtl-my.sharepoint.com:443/User%20Photos/Profile%20Pictures/8966dcf5-8718-4b63-b171-fcbed4c6318b_MThumb.jpg?t=63821133814",
+	"Title": "Software Developer",
+	"UserProfileProperties": [
+		{
+			"Key": "UserProfile_GUID",
+			"Value": "2108f275-2e9f-4847-a4e3-86be805c53e7",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SID",
+			"Value": "i:0h.f|membership|1003200117add722@live.com",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "ADGuid",
+			"Value": "System.Byte[]",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "AccountName",
+			"Value": "i:0#.f|membership|batsaikhan.ulambayar@usdtl.com",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "FirstName",
+			"Value": "Batsaikhan",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-PhoneticFirstName",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "LastName",
+			"Value": "Ulambayar",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-PhoneticLastName",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "PreferredName",
+			"Value": "Batsaikhan Ulambayar",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-PhoneticDisplayName",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "WorkPhone",
+			"Value": "Direct: 224-725-5996 x8996",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "Department",
+			"Value": "IT",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "Title",
+			"Value": "Software Developer",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-JobTitle",
+			"Value": "Software Developer",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-Department",
+			"Value": "IT",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "Manager",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "AboutMe",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "PersonalSpace",
+			"Value": "/personal/batsaikhan_ulambayar_usdtl_com/",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "PictureURL",
+			"Value": "https://usdtl-my.sharepoint.com:443/User%20Photos/Profile%20Pictures/8966dcf5-8718-4b63-b171-fcbed4c6318b_MThumb.jpg",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "UserName",
+			"Value": "batsaikhan.ulambayar@usdtl.com",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "QuickLinks",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "WebSite",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "PublicSiteRedirect",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-DataSource",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-MemberOf",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-Dotted-line",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-Peers",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-Responsibility",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-SipAddress",
+			"Value": "batsaikhan.ulambayar@usdtl.com",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-MySiteUpgrade",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-DontSuggestList",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-ProxyAddresses",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-HireDate",
+			"Value": "7/29/2023 12:00:00 AM",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-DisplayOrder",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-ClaimID",
+			"Value": "batsaikhan.ulambayar@usdtl.com",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-ClaimProviderID",
+			"Value": "membership",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-LastColleagueAdded",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-ClaimProviderType",
+			"Value": "Forms",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-OWAUrl",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-SavedAccountName",
+			"Value": "i:0#.f|membership|batsaikhan.ulambayar@usdtl.com",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-ResourceSID",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-SavedSID",
+			"Value": "System.Byte[]",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-ResourceAccountName",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-ObjectExists",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-MasterAccountName",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-UserPrincipalName",
+			"Value": "batsaikhan.ulambayar@usdtl.com",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-PersonalSiteCapabilities",
+			"Value": "4",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-O15FirstRunExperience",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-PersonalSiteFirstCreationTime",
+			"Value": "2/18/2021 6:33:42 PM",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-PersonalSiteLastCreationTime",
+			"Value": "2/18/2021 6:33:42 PM",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-PersonalSiteNumberOfRetries",
+			"Value": "1",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-PersonalSiteFirstCreationError",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-DistinguishedName",
+			"Value": "CN=8966dcf5-8718-4b63-b171-fcbed4c6318b,OU=7919f319-6639-492e-9220-0e48e9023e27,OU=Tenants,OU=MSOnline,DC=SPODS192022,DC=msft,DC=net",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-SourceObjectDN",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-LastKeywordAdded",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-FeedIdentifier",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-PersonalSiteInstantiationState",
+			"Value": "2",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "WorkEmail",
+			"Value": "batsaikhan.ulambayar@usdtl.com",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "CellPhone",
+			"Value": "2063721407",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "Fax",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "HomePhone",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "Office",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-Location",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "Assistant",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-PastProjects",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-Skills",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-School",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-Birthday",
+			"Value": "5/1/2000 12:00:00 AM",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-StatusNotes",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-Interests",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-HashTags",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-EmailOptin",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-PictureTimestamp",
+			"Value": "63821133814",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-PrivacyPeople",
+			"Value": "False",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-PicturePlaceholderState",
+			"Value": "0",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-PrivacyActivity",
+			"Value": "0",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-PictureExchangeSyncState",
+			"Value": "1",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-MUILanguages",
+			"Value": "en-US",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-ContentLanguages",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-TimeZone",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-RegionalSettings-FollowWeb",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-Locale",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-CalendarType",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-AltCalendarType",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-AdjustHijriDays",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-ShowWeeks",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-WorkDays",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-WorkDayStartHour",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-WorkDayEndHour",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-Time24",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-FirstDayOfWeek",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-FirstWeekOfYear",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-RegionalSettings-Initialized",
+			"Value": "True",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "OfficeGraphEnabled",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-UserType",
+			"Value": "0",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-HideFromAddressLists",
+			"Value": "False",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-RecipientTypeDetails",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "DelveFlags",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "VideoUserPopup",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "PulseMRUPeople",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "msOnline-ObjectId",
+			"Value": "8966dcf5-8718-4b63-b171-fcbed4c6318b",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-PointPublishingUrl",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-TenantInstanceId",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-SharePointHomeExperienceState",
+			"Value": "17303561",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-RefreshToken",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "SPS-MultiGeoFlags",
+			"Value": "",
+			"ValueType": "Edm.String"
+		},
+		{
+			"Key": "PreferredDataLocation",
+			"Value": "",
+			"ValueType": "Edm.String"
+		}
+	],
+	"UserUrl": "https://usdtl-my.sharepoint.com:443/Person.aspx?accountname=i%3A0%23%2Ef%7Cmembership%7Cbatsaikhan%2Eulambayar%40usdtl%2Ecom"
+}
