@@ -166,7 +166,6 @@ const Anniversary = ({
 				)}
 			</div>
 			<div className={styles.container}>
-				<button onClick={updateAnniversary}>UPDATE</button>
 				{currentUser.HireDate === '' ? (
 					<div className={styles.formContainer}>
 						<div className={styles.anniversaryEntryRequest}>
