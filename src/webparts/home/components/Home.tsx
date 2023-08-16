@@ -91,7 +91,6 @@ const Home = ({ context }: { context: WebPartContext }): JSX.Element => {
 								)
 							)
 							.then((users) => {
-								console.log(users);
 								setSiteUsers(users.filter((user) => user));
 							})
 							.catch((error: Error) => console.error(error.message));

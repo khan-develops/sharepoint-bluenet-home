@@ -56,7 +56,7 @@ export const Birthday = ({
 								setSiteUsers(
 									siteUsers.map((siteUser) => ({
 										...siteUser,
-										BirthDate: siteUser.Id === currentUser.Id ? birthDate : siteUser.BirthDate
+										BirthDate: siteUser.Id === currentUser.Id ? birthDate.Value : siteUser.BirthDate
 									}))
 								);
 							})
@@ -155,7 +155,6 @@ export const Birthday = ({
 	};
 
 	const filterBirthDays = (users: ISiteUser[]): ISiteUser[] => {
-		if (users.length === 0) return;
 		return users
 			.filter(
 				(user) =>

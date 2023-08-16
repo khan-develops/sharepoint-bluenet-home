@@ -55,7 +55,7 @@ const Anniversary = ({
 								setSiteUsers(
 									siteUsers.map((siteUser) => ({
 										...siteUser,
-										HireDate: siteUser.Id === currentUser.Id ? hireDate : siteUser.HireDate
+										HireDate: siteUser.Id === currentUser.Id ? hireDate.Value : siteUser.HireDate
 									}))
 								);
 							})
@@ -141,7 +141,6 @@ const Anniversary = ({
 	};
 
 	const filterAnniversaries = (users: ISiteUser[]): ISiteUser[] => {
-		if (users.length === 0) return;
 		return users
 			.filter(
 				(user) =>
