@@ -65,17 +65,7 @@ const Home = ({ context }: { context: WebPartContext }): JSX.Element => {
 					.then(() => {
 						sp.web.siteUserInfoList.items
 							.top(5000)
-							.select(
-								'Id',
-								'Title',
-								'JobTitle',
-								'EMail',
-								'WorkPhone',
-								'MobilePhone',
-								'Office',
-								'Picture',
-								'Name'
-							)
+							.select('Id', 'Title', 'JobTitle', 'EMail', 'WorkPhone', 'MobilePhone', 'Office', 'Name')
 							.filter('EMail ne null and FirstName ne null and LastName ne null')()
 							.then(async (response: ISiteUser[]) =>
 								Promise.all(
@@ -92,7 +82,7 @@ const Home = ({ context }: { context: WebPartContext }): JSX.Element => {
 											);
 											return {
 												...user,
-												PersonalUrl: userProperties.PersonalUrl,
+												UserUrl: userProperties.UserUrl,
 												HireDate: hireDate.Value,
 												BirthDate: birthDate.Value
 											};
@@ -101,6 +91,7 @@ const Home = ({ context }: { context: WebPartContext }): JSX.Element => {
 								)
 							)
 							.then((users) => {
+								console.log(users);
 								setSiteUsers(users.filter((user) => user));
 							})
 							.catch((error: Error) => console.error(error.message));

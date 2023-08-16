@@ -12,12 +12,8 @@ export interface ISiteUser {
 	WorkPhone: string;
 	MobilePhone: string;
 	Office: string;
-	Picture: {
-		Description: string;
-		Url: string;
-	};
 	Name: string;
-	PersonalUrl: string;
+	UserUrl: string;
 	HireDate: string;
 	BirthDate: string;
 }

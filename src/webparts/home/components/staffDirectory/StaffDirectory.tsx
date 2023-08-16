@@ -38,14 +38,17 @@ const StaffDirectory = ({ sp, siteUsers }: { sp: SPFI; siteUsers: ISiteUser[] })
 						.map((profile, index) => (
 							<Grid container className={styles.gridContainer} key={index}>
 								<Grid item xs={12} sm={3} md={3} lg={2} xl={2} style={{ textAlign: 'center' }}>
-									<a href={profile.PersonalUrl} target='_blank' rel='noreferrer'>
-										<img src={profile.Picture.Url} className={styles.profileImage} />
+									<a href={profile.UserUrl} target='_blank' rel='noreferrer'>
+										<img
+											src={`https://usdtl.sharepoint.com/_layouts/15/userphoto.aspx?size=M&username=${profile.EMail}`}
+											className={styles.profileImage}
+										/>
 									</a>
 								</Grid>
 								<Grid item xs={12} sm={9} md={9} lg={10} xl={10}>
 									<div>
 										<div>
-											<a href={profile.PersonalUrl} target='_blank' rel='noreferrer'>
+											<a href={profile.UserUrl} target='_blank' rel='noreferrer'>
 												{profile.Title}
 											</a>
 										</div>
