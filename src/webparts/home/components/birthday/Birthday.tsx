@@ -80,7 +80,7 @@ export const Birthday = ({
 					user.BirthDate !== '' &&
 					parseInt(user.BirthDate.split('/')[0]) === new Date().getMonth() + 1
 			)
-			.sort((userA, userB) => new Date(userA.BirthDate).getDay() - new Date(userB.BirthDate).getDay());
+			.sort((userA, userB) => new Date(userA.BirthDate).getDate() - new Date(userB.BirthDate).getDate());
 	};
 
 	const _setEmailBody = (): string => {
