@@ -44,27 +44,26 @@ const Announcement = ({ sp, currentUser }: { sp: SPFI; currentUser: ISiteUser })
 			.then((usersResponse) => {
 				usersResponse.map((user) => {
 					if (user.EMail && user.EMail.split('@')[1] === 'usdtl.com') {
-						let str = '';
-						sortAnnouncement(selected).map(
-							(announcement) =>
-								(str =
-									str +
+						const str: string = sortAnnouncement(selected)
+							.map(
+								(announcement) =>
 									`
-										<div style="padding-top:36px;padding-bottom:72px;margin-bottom:36px;border-bottom:2px solid #e1e1e1;">
-											
-											<img src=${announcement.ImageLink.DataUrl} alt="BLUENET ANNOUNCEMENT" width="auto" height="250"/>
-									
-										<div style="color:#1347a4;font-size:20px;font-weight:700;padding: 0; margin-top: 20px;">${announcement.Title}</div>
-										<div style="color:#000;opacity:0.7;font-size:16px;font-weight:700;padding-bottom:12px;">Posted on ${new Date(
-											announcement.Date
-										).toLocaleDateString('en-US')}</div>
-										<div>${announcement.Description}</div>
-										</div> 
-										`)
-						);
+									<div style="padding-top:36px;padding-bottom:72px;margin-bottom:36px;border-bottom:2px solid #e1e1e1;">
+
+										<img src=${announcement.ImageLink.DataUrl} alt="BLUENET ANNOUNCEMENT" width="auto" height="250"/>
+
+									<div style="color:#1347a4;font-size:20px;font-weight:700;padding: 0; margin-top: 20px;">${announcement.Title}</div>
+									<div style="color:#000;opacity:0.7;font-size:16px;font-weight:700;padding-bottom:12px;">Posted on ${new Date(
+										announcement.Date
+									).toLocaleDateString('en-US')}</div>
+									<div>${announcement.Description}</div>
+									</div>
+									`
+							)
+							.join('');
 						sp.utility
 							.sendEmail({
-								To: [user.EMail],
+								To: [user.Email],
 								Subject: 'BlueNet Announcement',
 								AdditionalHeaders: {
 									'content-type': 'multipart/related'
@@ -79,12 +78,12 @@ const Announcement = ({ sp, currentUser }: { sp: SPFI; currentUser: ISiteUser })
 								  <title></title>
 								</head>
 								<body>
-								  ${str} 
+								  ${str}
 								</body>
 								</html>
 								`
 							})
-							.then((response) => {
+							.then(() => {
 								setMessage('success');
 								setSeverity('success');
 								setIsSnackbarOpen(true);
