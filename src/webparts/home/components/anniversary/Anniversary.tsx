@@ -10,9 +10,9 @@ import { ISiteUser } from '../IHome';
 
 const _getYears = (anniversaryDate: string): number => {
 	if (new Date().getFullYear() - new Date(anniversaryDate).getFullYear() === 0) {
-		return null;
+		return 1;
 	}
-	return new Date().getFullYear() - new Date(anniversaryDate).getFullYear();
+	return new Date().getFullYear() - new Date(anniversaryDate).getFullYear() + 1;
 };
 
 const Anniversary = ({
@@ -66,16 +66,28 @@ const Anniversary = ({
 			.catch((error: Error) => console.error(error.message));
 	};
 
+	const sortAndFilter = (users: ISiteUser[]): ISiteUser[] => {
+		return users
+			.filter(
+				(user) =>
+					user &&
+					user.HireDate &&
+					user.HireDate !== '' &&
+					parseInt(user.HireDate.split('/')[0]) === new Date().getMonth() + 1
+			)
+			.sort((userA, userB) => new Date(userA.HireDate).getTime() - new Date(userB.HireDate).getTime());
+	};
+
 	const _setEmailBody = (): string => {
 		let str = ``;
-		siteUsers.map(
+		sortAndFilter(siteUsers).map(
 			(user) =>
 				(str =
 					str +
 					`  
     <tr>        
       <td style="padding-right:24px;">${user.Title}</td>
-      <td style="padding-right:24px;">${user.HireDate}</td>
+      <td style="padding-right:24px;">${moment(user.HireDate).format('MM/DD/YYYY')}</td>
       <td style="padding-right:24px;text-align:center;">${_getYears(user.HireDate)}</td>
     <tr>
     `)
@@ -84,7 +96,7 @@ const Anniversary = ({
 	};
 	const _setEmailProp = (email: string): IEmailProperties => {
 		const emailProps: IEmailProperties = {
-			To: [email],
+			To: ['batsaikhan.ulambayar@usdtl.com'],
 			Subject: `${MONTHS[new Date().getMonth()]} ANNIVERSARIES`,
 			From: 'support@usdtl.com',
 			AdditionalHeaders: {
@@ -140,18 +152,6 @@ const Anniversary = ({
 		setIsSnackbarOpen(false);
 	};
 
-	const filterAnniversaries = (users: ISiteUser[]): ISiteUser[] => {
-		return users
-			.filter(
-				(user) =>
-					user &&
-					user.HireDate &&
-					user.HireDate !== '' &&
-					parseInt(user.HireDate.split('/')[0]) === new Date().getMonth() + 1
-			)
-			.sort((userA, userB) => new Date(userA.HireDate).getTime() - new Date(userB.HireDate).getTime());
-	};
-
 	return (
 		<div className={styles.anniversaryWp}>
 			<div className={styles.heading}>
@@ -189,7 +189,7 @@ const Anniversary = ({
 					<div className={styles.container}>
 						{siteUsers &&
 							siteUsers.length > 0 &&
-							filterAnniversaries(siteUsers).map((user, index) => (
+							sortAndFilter(siteUsers).map((user, index) => (
 								<div className={styles.content} key={index}>
 									<div className={styles.day}>{user.HireDate && user.HireDate.split('/')[1]}</div>
 									<div className={styles.name}>{user.Title}</div>

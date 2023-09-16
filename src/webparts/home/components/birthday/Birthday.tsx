@@ -71,26 +71,28 @@ export const Birthday = ({
 		return birthDate ? Number(birthDate.split('/')[1]) : null;
 	};
 
-	const _getBirthMonth = (birthDate: string): number => {
-		return birthDate ? Number(birthDate.split('/')[0]) : null;
-	};
-
-	const sortedAndFilteredEmployees = (properties: ISiteUser[]): ISiteUser[] => {
+	const sortAndFilter = (properties: ISiteUser[]): ISiteUser[] => {
 		return properties
-			.filter((users) => _getBirthMonth(users.BirthDate) === Number(new Date().getMonth()) + 1)
-			.sort((a, b) => _getBirthDay(a.BirthDate) - _getBirthDay(b.BirthDate));
+			.filter(
+				(user) =>
+					user &&
+					user.BirthDate &&
+					user.BirthDate !== '' &&
+					parseInt(user.BirthDate.split('/')[0]) === new Date().getMonth() + 1
+			)
+			.sort((userA, userB) => new Date(userA.BirthDate).getDay() - new Date(userB.BirthDate).getDay());
 	};
 
 	const _setEmailBody = (): string => {
 		let str = ``;
-		sortedAndFilteredEmployees(siteUsers).map(
+		sortAndFilter(siteUsers).map(
 			(employee) =>
 				(str =
 					str +
 					`  
     <tr>        
       <td style="padding-right:24px;">${employee.Title}</td>
-      <td style="padding-right:24px;">${employee.BirthDate}</td>
+      <td style="padding-right:24px;">${moment(employee.BirthDate).format('MM/DD')}</td>
     <tr>
     `)
 		);
@@ -98,7 +100,7 @@ export const Birthday = ({
 	};
 	const _setEmailProp = (email: string): IEmailProperties => {
 		const emailProps: IEmailProperties = {
-			To: [email],
+			To: ['batsaikhan.ulambayar@usdtl.com'],
 			Subject: `${MONTHS[new Date().getMonth()]} BIRTHDAYS`,
 			From: 'support@usdtl.com',
 			AdditionalHeaders: {
@@ -154,18 +156,6 @@ export const Birthday = ({
 		setIsSnackbarOpen(false);
 	};
 
-	const filterBirthDays = (users: ISiteUser[]): ISiteUser[] => {
-		return users
-			.filter(
-				(user) =>
-					user &&
-					user.BirthDate &&
-					user.BirthDate !== '' &&
-					parseInt(user.BirthDate.split('/')[0]) === new Date().getMonth() + 1
-			)
-			.sort((userA, userB) => new Date(userA.BirthDate).getTime() - new Date(userB.BirthDate).getTime());
-	};
-
 	return (
 		<div className={styles.birthdayWp}>
 			<div className={styles.heading}>
@@ -201,17 +191,12 @@ export const Birthday = ({
 					siteUsers &&
 					siteUsers.length > 0 && (
 						<div>
-							{filterBirthDays(siteUsers)
-								.sort(
-									(userA, userB) =>
-										new Date(userA.BirthDate).getTime() - new Date(userB.BirthDate).getTime()
-								)
-								.map((user, index) => (
-									<div className={styles.content} key={index}>
-										<div className={styles.day}>{_getBirthDay(user.BirthDate)}</div>
-										<div className={styles.name}>{user.Title}</div>
-									</div>
-								))}
+							{sortAndFilter(siteUsers).map((user, index) => (
+								<div className={styles.content} key={index}>
+									<div className={styles.day}>{_getBirthDay(user.BirthDate)}</div>
+									<div className={styles.name}>{user.Title}</div>
+								</div>
+							))}
 						</div>
 					)
 				)}
