@@ -96,7 +96,7 @@ const Anniversary = ({
 	};
 	const _setEmailProp = (email: string): IEmailProperties => {
 		const emailProps: IEmailProperties = {
-			To: ['batsaikhan.ulambayar@usdtl.com'],
+			To: [email],
 			Subject: `${MONTHS[new Date().getMonth()]} ANNIVERSARIES`,
 			From: 'support@usdtl.com',
 			AdditionalHeaders: {

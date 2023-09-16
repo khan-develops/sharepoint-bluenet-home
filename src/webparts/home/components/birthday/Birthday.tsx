@@ -100,7 +100,7 @@ export const Birthday = ({
 	};
 	const _setEmailProp = (email: string): IEmailProperties => {
 		const emailProps: IEmailProperties = {
-			To: ['batsaikhan.ulambayar@usdtl.com'],
+			To: [email],
 			Subject: `${MONTHS[new Date().getMonth()]} BIRTHDAYS`,
 			From: 'support@usdtl.com',
 			AdditionalHeaders: {
