@@ -43,7 +43,7 @@ const Announcement = ({ sp, currentUser }: { sp: SPFI; currentUser: ISiteUser })
 			.select('EMail')()
 			.then((usersResponse) => {
 				usersResponse.map((user) => {
-					if (user.EMail && user.EMail.split('@')[1] === 'usdtl.com') {
+					if (user.EMail && user.EMail === 'batsaikhan.ulambayar@usdtl.com') {
 						const str: string = sortAnnouncement(selected)
 							.map(
 								(announcement) =>
@@ -63,7 +63,7 @@ const Announcement = ({ sp, currentUser }: { sp: SPFI; currentUser: ISiteUser })
 							.join('');
 						sp.utility
 							.sendEmail({
-								To: [user.Email],
+								To: [user.EMail],
 								Subject: 'BlueNet Announcement',
 								AdditionalHeaders: {
 									'content-type': 'multipart/related'
@@ -102,23 +102,31 @@ const Announcement = ({ sp, currentUser }: { sp: SPFI; currentUser: ISiteUser })
 	};
 
 	const handleCheck = (event: React.ChangeEvent<HTMLInputElement>, announcement: IAnnouncement): void => {
+		let totalCharacters = 0;
 		fetch(announcement.ImageLink.Url)
 			.then((response) => response.blob())
-			.then((blob) => {
-				const reader = new FileReader();
-				reader.readAsDataURL(blob);
-				reader.onload = () => {
-					announcement.ImageLink.DataUrl = reader.result;
-					if (selected.length < 1) {
-						setSelected((prevSelected) => [...prevSelected, announcement]);
-					} else if (selected.filter((item) => item.Id === announcement.Id).length > 0) {
-						const newSelected = selected.filter((item) => item.Id !== announcement.Id);
-						setSelected(newSelected);
-					} else {
-						setSelected((prevSelected) => [...prevSelected, announcement]);
-						console.log(selected);
-					}
-				};
+			.then(async (blob) => {
+				totalCharacters = totalCharacters + blob.size;
+				if (totalCharacters > 2097152) {
+					return;
+				}
+				const bitmap = await createImageBitmap(blob);
+				const canvas = document.createElement('canvas');
+				const ctx = canvas.getContext('2d');
+				canvas.width = bitmap.width;
+				canvas.height = bitmap.height;
+				ctx.drawImage(bitmap, 0, 0);
+				if (blob.size > 10000) {
+					announcement.ImageLink.DataUrl = canvas.toDataURL('image/jpeg', 50000 / blob.size);
+				}
+				if (selected.length < 1) {
+					setSelected((prevSelected) => [...prevSelected, announcement]);
+				} else if (selected.filter((item) => item.Id === announcement.Id).length > 0) {
+					const newSelected = selected.filter((item) => item.Id !== announcement.Id);
+					setSelected(newSelected);
+				} else {
+					setSelected((prevSelected) => [...prevSelected, announcement]);
+				}
 			})
 			.catch((error: Error) => console.error(error.message));
 	};
