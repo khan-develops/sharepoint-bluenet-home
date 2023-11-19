@@ -192,14 +192,14 @@ const Anniversary = ({
                     </Button>
                 )}
             </div>
-            <Grid container>
+            <Grid container spacing={2}>
                 <Grid
                     item
-                    xs={6}
-                    sm={6}
-                    md={6}
-                    lg={6}
-                    xl={6}
+                    xs={12}
+                    sm={12}
+                    md={8}
+                    lg={8}
+                    xl={8}
                     sx={{ heightMax: 430, minHeight: 300, overflowY: 'auto', paddingRight: 0.5 }}>
                     {siteUsers &&
                         siteUsers.length > 0 &&
@@ -232,10 +232,10 @@ const Anniversary = ({
                             </div>
                         ))}
                 </Grid>
-                <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+                <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
                     <Box
                         sx={{
-                            borderLeft: '1px solid #1347a4',
+                            borderLeft: '1px solid rgba(255, 0, 0, .5)',
                             height: '100%',
                             display: 'flex',
                             flexDirection: 'column',
