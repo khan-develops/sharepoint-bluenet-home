@@ -14,7 +14,9 @@ import {
     Snackbar,
     Alert,
     Grid,
-    Box
+    Box,
+    Paper,
+    ButtonGroup
 } from '@mui/material';
 import { ISiteUser } from '../IHome';
 
@@ -38,6 +40,7 @@ const Anniversary = ({
     setSiteUsers: (siteUsers: ISiteUser[]) => void;
     setCurrentUser: (currentUser: ISiteUser) => void;
 }): JSX.Element => {
+    const [isEditing, setIsEditing] = useState<boolean>(false);
     const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
     const [isSnackbarOpen, setIsSnackbarOpen] = useState<boolean>(false);
     const [message, setMessage] = useState<string>('Email sent successfully');
@@ -72,6 +75,7 @@ const Anniversary = ({
                                                 : siteUser.HireDate
                                     }))
                                 );
+                                setIsEditing(false);
                             })
                             .catch((error: Error) => console.error(error.message));
                     })
@@ -197,10 +201,10 @@ const Anniversary = ({
                     item
                     xs={12}
                     sm={12}
-                    md={8}
-                    lg={8}
-                    xl={8}
-                    sx={{ heightMax: 430, minHeight: 300, overflowY: 'auto', paddingRight: 0.5 }}>
+                    md={isEditing ? 7 : 10}
+                    lg={isEditing ? 7 : 10}
+                    xl={isEditing ? 7 : 10}
+                    sx={{ heightMax: 430, minHeight: 200, overflowY: 'auto' }}>
                     {siteUsers &&
                         siteUsers.length > 0 &&
                         sortAndFilter(siteUsers).map((user, index) => (
@@ -232,34 +236,64 @@ const Anniversary = ({
                             </div>
                         ))}
                 </Grid>
-                <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
-                    <Box
-                        sx={{
-                            borderLeft: '1px solid rgba(255, 0, 0, .5)',
-                            height: '100%',
-                            display: 'flex',
-                            flexDirection: 'column',
-                            justifyContent: 'center',
-                            alignItems: 'center'
-                        }}>
-                        <div>Enter or edit your anniversary</div>
-                        <input
-                            className={styles.dateField}
-                            type="date"
-                            id="start"
-                            name="anniversary"
-                            onChange={(e) => {
-                                setHireDate(e.target.value);
-                            }}
-                            max={moment(new Date()).format('YYYY-MM-DD')}
-                        />
-                        <button
-                            className={styles.submitButton}
-                            onClick={updateAnniversary}
-                            disabled={hireDate === ''}>
-                            Submit
-                        </button>
-                    </Box>
+                <Grid
+                    display="flex"
+                    justifyContent={isEditing ? 'center' : 'flex-end'}
+                    alignItems="flex-start"
+                    item
+                    xs={12}
+                    sm={12}
+                    md={isEditing ? 5 : 2}
+                    lg={isEditing ? 5 : 2}
+                    xl={isEditing ? 5 : 2}>
+                    {isEditing ? (
+                        <Box
+                            sx={{
+                                borderLeft: '1px solid #d3d3d3',
+                                padding: 2,
+                                height: '100%',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'center',
+                                alignItems: 'center'
+                            }}>
+                            <Paper
+                                variant="outlined"
+                                sx={{
+                                    marginTop: 2,
+                                    marginBottom: 2,
+                                    paddingTop: 1,
+                                    paddingRight: 2,
+                                    paddingBottom: 1,
+                                    paddingLeft: 2
+                                }}>
+                                <input
+                                    style={{
+                                        border: 'none'
+                                    }}
+                                    type="date"
+                                    id="start"
+                                    name="anniversary"
+                                    onChange={(e) => {
+                                        setHireDate(e.target.value);
+                                    }}
+                                    max={moment(new Date()).format('YYYY-MM-DD')}
+                                />
+                            </Paper>
+                            <ButtonGroup
+                                fullWidth
+                                variant="text"
+                                size="large"
+                                sx={{ border: 'none' }}>
+                                <Button onClick={updateAnniversary}>Submit</Button>
+                                <Button onClick={() => setIsEditing(false)}>Cancel</Button>
+                            </ButtonGroup>
+                        </Box>
+                    ) : (
+                        <Button variant="text" onClick={() => setIsEditing(true)}>
+                            Add/Edit
+                        </Button>
+                    )}
                 </Grid>
             </Grid>
 

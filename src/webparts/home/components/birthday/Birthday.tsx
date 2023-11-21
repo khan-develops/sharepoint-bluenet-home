@@ -18,11 +18,13 @@ import {
     Alert,
     Box,
     Button,
+    ButtonGroup,
     Dialog,
     DialogActions,
     DialogContent,
     DialogContentText,
     Grid,
+    Paper,
     Snackbar
 } from '@mui/material';
 
@@ -39,6 +41,7 @@ export const Birthday = ({
     setSiteUsers: (siteUsers: ISiteUser[]) => void;
     setCurrentUser: (currentUser: ISiteUser) => void;
 }): JSX.Element => {
+    const [isEditing, setIsEditing] = useState<boolean>(false);
     const [birthDate, setBirthDate] = useState<string>('');
     const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
     const [isSnackbarOpen, setIsSnackbarOpen] = useState<boolean>(false);
@@ -73,6 +76,7 @@ export const Birthday = ({
                                                 : siteUser.BirthDate
                                     }))
                                 );
+                                setIsEditing(false);
                             })
                             .catch((error: Error) => console.error(error.message));
                     })
@@ -196,14 +200,14 @@ export const Birthday = ({
                     </Button>
                 )}
             </div>
-            <Grid container>
+            <Grid container spacing={2}>
                 <Grid
                     item
-                    xs={6}
-                    sm={6}
-                    md={6}
-                    lg={6}
-                    xl={6}
+                    xs={12}
+                    sm={12}
+                    md={isEditing ? 7 : 10}
+                    lg={isEditing ? 7 : 10}
+                    xl={isEditing ? 7 : 10}
                     sx={{ heightMax: 430, minHeight: 300, overflowY: 'auto' }}>
                     {siteUsers &&
                         siteUsers.length > 0 &&
@@ -214,32 +218,56 @@ export const Birthday = ({
                             </div>
                         ))}
                 </Grid>
-                <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
-                    <Box
-                        sx={{
-                            borderLeft: '1px solid #1347a4',
-                            height: '100%',
-                            display: 'flex',
-                            flexDirection: 'column',
-                            justifyContent: 'center',
-                            alignItems: 'center'
-                        }}>
-                        <div>Enter or edit your birth date</div>
-                        <input
-                            className={styles.dateField}
-                            type="date"
-                            id="start"
-                            name="birthDate"
-                            onChange={(e) => setBirthDate(e.target.value)}
-                            max={moment(new Date()).format('YYYY-MM-DD')}
-                        />
-                        <button
-                            className={styles.submitButton}
-                            onClick={updateBirthDate}
-                            disabled={birthDate === ''}>
-                            Submit
-                        </button>
-                    </Box>
+                <Grid
+                    display="flex"
+                    justifyContent={isEditing ? 'center' : 'flex-end'}
+                    alignItems="flex-start"
+                    item
+                    xs={12}
+                    sm={12}
+                    md={isEditing ? 5 : 2}
+                    lg={isEditing ? 5 : 2}
+                    xl={isEditing ? 5 : 2}>
+                    {isEditing ? (
+                        <Box
+                            sx={{
+                                borderLeft: '1px solid #d3d3d3',
+                                padding: 2,
+                                height: '100%',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'center',
+                                alignItems: 'center'
+                            }}>
+                            <Paper
+                                variant="outlined"
+                                sx={{
+                                    marginTop: 2,
+                                    marginBottom: 2,
+                                    paddingTop: 1,
+                                    paddingRight: 2,
+                                    paddingBottom: 1,
+                                    paddingLeft: 2
+                                }}>
+                                <input
+                                    style={{ border: 'none' }}
+                                    type="date"
+                                    id="start"
+                                    name="birthDate"
+                                    onChange={(e) => setBirthDate(e.target.value)}
+                                    max={moment(new Date()).format('YYYY-MM-DD')}
+                                />
+                            </Paper>
+                            <ButtonGroup variant="text" size="medium" sx={{ border: 'none' }}>
+                                <Button onClick={updateBirthDate}>Submit</Button>
+                                <Button onClick={() => setIsEditing(false)}>Cancel</Button>
+                            </ButtonGroup>
+                        </Box>
+                    ) : (
+                        <Button variant="text" onClick={() => setIsEditing(true)}>
+                            Add/Edit
+                        </Button>
+                    )}
                 </Grid>
             </Grid>
 
